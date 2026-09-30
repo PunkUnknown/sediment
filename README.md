@@ -68,9 +68,10 @@ No reason found is never proof. It's a question for you.
 ## What the skills do
 
 **Before a change**, `sediment` lists what the change touches, finds why each piece exists, and
-retires what the change makes redundant, in the same change. It asks you only what the code
-can't answer. If the agent starts writing a sync or a fallback, it stops and asks why there are
-two copies.
+retires what the change makes redundant, in the same change. Every removal runs the tests before and
+after; if anything else breaks, the removal is undone and the verdict reopened, never patched over.
+It asks you only what the code can't answer. If the agent starts writing a sync or a fallback, it
+stops and asks why there are two copies.
 
 **On an existing repo**, `sediment-audit` digs for sediment, proves each finding, and ranks them:
 

@@ -12,7 +12,8 @@ that says when it stops being true.
 
 The default record is a reason marker beside the code it explains, in the format of
 [REFERENCE.md](../sediment/REFERENCE.md): `reason: <claim>; until <condition>`, on one line.
-Most decisions need nothing more.
+Most decisions need nothing more. If that file is missing, use the format as written here and tell
+the user to install all four sediment skills together.
 
 ## When a decision record is worth writing
 

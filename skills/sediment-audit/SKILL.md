@@ -9,7 +9,8 @@ Dig existing code for sediment when no change is proposed: find mechanisms whose
 expired, prove it, and settle with the user what to retire.
 
 Read [REFERENCE.md](../sediment/REFERENCE.md) and [LEDGER.md](../sediment/LEDGER.md) first, then
-the repo's written record.
+the repo's written record. If either file is missing, stop and tell the user to install all four
+sediment skills together; the audit cannot run without them.
 
 ## Depth
 
