@@ -154,7 +154,8 @@ refine it:
 
 The justification says why the findings belong together, not what they look like. A tuned
 line adds what changed. Patterns the run did not touch are not listed. These lines go at the
-top of the report, right after the mode line, where the user reads first. Report each new or
+top of the report, right after the mode line. The reply to the user is the report's summary: it
+leads with the mode line and these pattern lines, whatever file holds the full evidence. Report each new or
 extended calibration entry the same way: `<id> <new|extended> <signal>. check: <check>.` The
 user can answer with their own tuning of any field.
 
