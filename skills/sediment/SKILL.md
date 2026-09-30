@@ -55,9 +55,8 @@ Done when:
 
 ## 4. Grill the ask verdicts
 
-Call the Skill tool with "grilling" when it is available; otherwise ask directly, roots first.
-Seed its design tree with the ask verdicts, phrased as the question types. Assumption questions
-are roots: their answers settle the merge and retire
+Call the Skill tool with "sediment-grilling", seeded with the ask verdicts phrased as the
+question types. Assumption questions are roots: their answers settle the merge and retire
 questions hanging off them.
 
 Done when every ask verdict has the user's answer.
@@ -65,9 +64,8 @@ Done when every ask verdict has the user's answer.
 ## 5. Record
 
 Put the map and its verdicts wherever the change is tracked. Write each surviving reason where
-the next reader meets it: a reason marker at the seam (see the reference), and a decision record
-in the repo's usual form (through the "domain-modeling" skill when it is available) when a future
-reader would re-question the decision without it.
+the next reader meets it: a reason marker at the seam, and a decision record when one is worth
+writing: call the Skill tool with "sediment-decisions".
 
 ## During the change: the tape tripwire
 

@@ -9,8 +9,10 @@ called; review skills miss it because nothing proposed removing it.
 | --- | --- |
 | [`sediment`](skills/sediment/SKILL.md) | Before or during a change: map what the change touches, find why each neighbour exists, and retire what the change makes redundant. |
 | [`sediment-audit`](skills/sediment-audit/SKILL.md) | With no change proposed: dig the repo (deep) or re-check what changed since the last audit (fast), prove each finding, and settle them with the user. |
+| [`sediment-grilling`](skills/sediment-grilling/SKILL.md) | Helper: puts open decisions to the user in rounds, dependencies first, each with a recommendation. |
+| [`sediment-decisions`](skills/sediment-decisions/SKILL.md) | Helper: records a settled decision as a reason marker, or a decision record when one is worth it, and retires records it replaces. |
 
-Both read the shared [reference](skills/sediment/REFERENCE.md): the vocabulary, reason markers,
+`sediment` and `sediment-audit` read the shared [reference](skills/sediment/REFERENCE.md): the vocabulary, reason markers,
 verdict ladder, question types, signals and anti-patterns. The ledger and patterns formats live in
 [LEDGER.md](skills/sediment/LEDGER.md), which the audit reads every run and `sediment` reads only
 when a repo keeps those files.
@@ -32,8 +34,10 @@ Link each skill directory into your agent's skills folder, for example:
 ```bash
 ln -s "$PWD/skills/sediment" ~/.agents/skills/sediment
 ln -s "$PWD/skills/sediment-audit" ~/.agents/skills/sediment-audit
+ln -s "$PWD/skills/sediment-grilling" ~/.agents/skills/sediment-grilling
+ln -s "$PWD/skills/sediment-decisions" ~/.agents/skills/sediment-decisions
 ```
 
 The skills assume no particular docs layout: they read whatever written record a repo has
-(decision records, specs, tickets, READMEs, commit history). They use the `grilling` and
-`domain-modeling` skills when available, and ask directly or write plain decision notes otherwise.
+(decision records, specs, tickets, READMEs, commit history). They depend only on the
+skills in this repo.
