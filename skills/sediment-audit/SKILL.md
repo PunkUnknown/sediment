@@ -5,8 +5,8 @@ description: "Dig existing code for sediment when no change is proposed: mechani
 
 # Sediment audit
 
-The sediment skill, run on what already exists. No change is proposed; the job is to find
-mechanisms whose reason has expired, prove it, and settle with the user what to retire.
+Dig existing code for sediment when no change is proposed: find mechanisms whose reason has
+expired, prove it, and settle with the user what to retire.
 
 Read [REFERENCE.md](../sediment/REFERENCE.md) and [LEDGER.md](../sediment/LEDGER.md) first, then
 the repo's written record.
@@ -173,8 +173,8 @@ Then ask the user which findings to settle.
 ## 5. Settle
 
 For the findings the user picks, call the Skill tool with "sediment-grilling", seeded with their ask
-verdicts as question types. Retiring a finding is itself a change: run it through the "sediment"
-skill, which maps what the removal touches, verifies it (its "Verifying each removal"), and resolves
-the ledger entry in the same commit, one commit per entry. A removal that fails verification leaves
-its entry active. A finding the user decides to keep moves to Do not re-report, with a reason marker
-written beside the code.
+verdicts as question types. Apply each settled retire, merge and rewrite as the reference's
+"Applying a verdict" describes: one commit per ledger entry, resolving the entry in the same commit,
+with the repo's tests and checks run before and after. A verdict that fails them leaves its entry
+active and is reported back as reopened. A finding the user decides to keep moves to Do not
+re-report, with a reason marker written beside the code.

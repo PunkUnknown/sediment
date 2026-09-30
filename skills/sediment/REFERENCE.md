@@ -55,6 +55,25 @@ never retired on proof.
 A **proven** verdict is still a claim until the change applying it passes the repo's tests and
 checks. A new failure is evidence that the reason still holds, and overturns the verdict.
 
+## Applying a verdict
+
+Retire, merge and rewrite verdicts change running code. For each one:
+
+1. **Map what it touches**: every reader and writer of what the mechanism owns, and the tests,
+   fixtures, developer tools, diagnostics and docs that encode it.
+2. **Run the tests covering it and its neighbours before the edit.** Note what already fails, so
+   it is not blamed on the change.
+3. **Make the edit.** A retire removes the mechanism with its tests, fixtures, tools, diagnostics
+   and docs; a merge leaves one owner; a rewrite changes only the colliding rule. Delete a test
+   only when it asserts nothing but the retired behaviour, and say which ones went and why.
+4. **Run those tests again, then every check the repo has**: the full suite, type check, build,
+   lint.
+5. **A new failure means the reason has not expired**: something still relies on the mechanism.
+   Revert that edit and reopen the verdict. Never patch the failure to keep the edit.
+
+When the repo keeps a ledger, each verdict is its own commit, and the commit resolves its ledger
+entry (see [LEDGER.md](LEDGER.md)). A verdict that fails step 5 leaves its entry active.
+
 ## Question types
 
 Ask verdicts go to the user through the "sediment-grilling" skill, each phrased as one of these
