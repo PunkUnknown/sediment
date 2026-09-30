@@ -1,6 +1,6 @@
 ---
 name: sediment-grilling
-description: Put a set of open decisions to the user in rounds, dependencies first, each with a recommended answer. Called by the sediment skills to settle ask verdicts; also use when a plan has several open decisions that depend on each other.
+description: Put a set of open decisions to the user in rounds, dependencies first, each with a recommended answer. Called by the sediment skills to settle their ask verdicts.
 ---
 
 # Sediment grilling

@@ -41,3 +41,10 @@ ln -s "$PWD/skills/sediment-decisions" ~/.agents/skills/sediment-decisions
 The skills assume no particular docs layout: they read whatever written record a repo has
 (decision records, specs, tickets, READMEs, commit history). They depend only on the
 skills in this repo.
+
+## Credits
+
+`sediment-grilling` adapts the `grilling` skill from Matt Pocock's
+[skills](https://github.com/mattpocock/skills): the design tree, the frontier, and rounds of
+numbered questions with recommended answers. `sediment-decisions` draws its bar for when a
+decision record is worth writing from the same collection's `domain-modeling` skill.

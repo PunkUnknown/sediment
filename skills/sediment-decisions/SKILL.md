@@ -1,6 +1,6 @@
 ---
 name: sediment-decisions
-description: Record why a mechanism exists or why a decision was made, where the next reader meets it, and retire records the decision no longer backs. Called by the sediment skills after a decision is settled; also use when a settled decision needs writing down.
+description: Record why a mechanism exists or why a decision was made, where the next reader meets it, and retire records the decision no longer backs. Called by the sediment skills after a decision is settled.
 ---
 
 # Sediment decisions
@@ -27,8 +27,10 @@ Missing any one, the marker is enough.
 ## Form and place
 
 Use the repo's existing form and location for decisions: its decision records, design docs, or
-wherever its written record keeps them. With none, create `docs/decisions/` when the first record
-is needed, and name files `NNNN-slug.md`, numbered after the highest existing one.
+wherever its written record keeps them. With none, ask the user where decisions should live,
+recommending `docs/decisions/` with files named `NNNN-slug.md`, numbered after the highest
+existing one. Create the folder only once the user agrees, and only when the first record is
+needed.
 
 A record is short: the decision and its reason in a few sentences, and the condition that would
 make it false. Add rejected alternatives only when the rejection is not obvious.

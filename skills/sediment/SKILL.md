@@ -55,9 +55,8 @@ Done when:
 
 ## 4. Grill the ask verdicts
 
-Call the Skill tool with "sediment-grilling", seeded with the ask verdicts phrased as the
-question types. Assumption questions are roots: their answers settle the merge and retire
-questions hanging off them.
+Call the Skill tool with "sediment-grilling", seeded with the ask verdicts phrased as the question
+types. Assumption questions are roots: their answers settle the questions hanging off them.
 
 Done when every ask verdict has the user's answer.
 

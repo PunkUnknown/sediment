@@ -54,8 +54,8 @@ never retired on proof.
 
 ## Question types
 
-For ask verdicts. Each names the mechanism, its reason, what changed about that reason, and a
-recommendation.
+Ask verdicts go to the user through the "sediment-grilling" skill, each phrased as one of these
+types, naming the mechanism, its reason, what changed about that reason, and a recommendation.
 
 - **Assumption**: "X exists because it assumes A. Does A still hold?"
 - **Retire**: "X exists for R, and R is now false. Remove X?"
@@ -65,8 +65,7 @@ recommendation.
   losing case go?"
 - **Keep**: "X stays because R. Confirm, and I will write R beside it."
 
-Assumption questions are roots: their answers settle the others. Put them to the user with the
-"sediment-grilling" skill.
+Assumption questions are roots: their answers settle the others.
 
 ## Signals
 
