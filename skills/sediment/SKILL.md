@@ -18,13 +18,13 @@ touched", and nothing more.
 ## 1. Map the contact surface
 
 List the facts the change reads, writes, or redefines. For each fact, trace its owner and every
-reader and writer through wherever the repo keeps shared data and any docs that assign
-ownership, then every place a module computes the fact for itself, stored or not. A grep hit is
-a lead; a traced reader is a neighbour. Defaults, fallbacks and optional calls that supply the fact are neighbours,
-and so are the written record, tests, fixtures and developer tools that encode it.
+reader and writer through wherever the repo keeps shared data and any docs that assign ownership,
+then every place a module computes the fact for itself, stored or not. A grep hit is a lead; a
+traced reader is a neighbour. Defaults, fallbacks and optional calls that supply the fact are
+neighbours, and so are the written record, tests, fixtures and developer tools that encode it.
 
-If the repo has a sediment ledger (see [LEDGER.md](LEDGER.md)), its active entries on these facts are
-known sediment: take them onto the map. Its Do not re-report lines are resolved; leave them be.
+If the repo has a sediment ledger (see [LEDGER.md](LEDGER.md)), its active entries on these facts
+are known sediment: take them onto the map. Its Do not re-report lines are resolved; leave them be.
 
 ## 2. Find each neighbour's reason
 
@@ -43,8 +43,8 @@ finding; say so, and tag its verdict ask (see the reference).
 Give every neighbour a verdict from the ladder, tagged by who decides it: **proven** when the
 evidence decides it, **ask** when it rests on a requirement only the user can confirm.
 
-If the repo has a patterns file (see [LEDGER.md](LEDGER.md)), apply each pattern's prevention to the change: run its checks
-yourself, and put its questions to the user as ask verdicts.
+If the repo has a patterns file (see [LEDGER.md](LEDGER.md)), apply each pattern's prevention to the
+change: run its checks yourself, and put its questions to the user as ask verdicts.
 
 Done when:
 

@@ -33,7 +33,8 @@ earlier run's finding. If a ledger exists, before digging:
 
 - Re-verify every unverified and active entry against the current code. Code already gone: delete
   the entry. Evidence failed: move it to Do not re-report. Otherwise: active, with fresh evidence.
-- Check each Do not re-report line still applies. A stale reason returns it to the entries as active.
+- Check each Do not re-report line still applies. A stale reason returns it to the entries as
+  active.
 
 Done when every entry carries today's verification date and every suppression has been checked.
 Both depths run this step in full.
@@ -67,8 +68,8 @@ Work five seams. Each produces candidates; none is proof yet.
    Include stated numbers: every version, revision or count that appears in more than one doc
    or gate is compared across all of them.
 2. **Written reasons.** Grep every reason marker first. Test the checkable `until` forms (date,
-   package version, symbol or path) with a script; test prose conditions by judgment. Then collect the unmarked reasons from the written
-   record and seam comments, and test each claim the same way.
+   package version, symbol or path) with a script; test prose conditions by judgment. Then collect
+   the unmarked reasons from the written record and seam comments, and test each claim the same way.
 3. **Tape clusters.** Fix commits clustered on one seam, repair vocabulary in code. Trace each
    cluster to the two things that must agree, and to why two exist.
 4. **Replacement leftovers.** For each removal or breaking commit, and each superseded decision,
@@ -160,19 +161,19 @@ refine it:
 `<id> <proposed|tuned|confirmed> <shape>. missed by <user|agent|both|unknown>: <cause or unknown>.`
 `  why: <what these findings share beyond appearance, with their ids>. origin: <citation or none found>.`
 
-The justification says why the findings belong together, not what they look like. A tuned
-line adds what changed. Patterns the run did not touch are not listed. These lines go at the
-top of the report, right after the mode line. The reply to the user is the report's summary: it
-leads with the mode line and these pattern lines, whatever file holds the full evidence. Report each new or
-extended calibration entry the same way: `<id> <new|extended> <signal>. check: <check>.` The
-user can answer with their own tuning of any field.
+The justification says why the findings belong together, not what they look like. A tuned line adds
+what changed. Patterns the run did not touch are not listed. These lines go at the top of the
+report, right after the mode line. The reply to the user is the report's summary: it leads with the
+mode line and these pattern lines, whatever file holds the full evidence. Report each new or
+extended calibration entry the same way: `<id> <new|extended> <signal>. check: <check>.` The user
+can answer with their own tuning of any field.
 
 Then ask the user which findings to settle.
 
 ## 5. Settle
 
-For the findings the user picks, put their ask verdicts to the user as question types, through
-the "grilling" skill when it is available. Retiring a finding is itself a change: run it through the "sediment"
-skill, which maps what the removal touches and resolves the ledger entry in the same commit,
-one commit per entry. A finding the user decides to keep moves to Do not re-report, with a
+For the findings the user picks, put their ask verdicts to the user as question types, through the
+"grilling" skill when it is available. Retiring a finding is itself a change: run it through the
+"sediment" skill, which maps what the removal touches and resolves the ledger entry in the same
+commit, one commit per entry. A finding the user decides to keep moves to Do not re-report, with a
 reason marker written beside the code.
