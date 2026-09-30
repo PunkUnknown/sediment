@@ -1,6 +1,6 @@
 ---
 name: sediment-audit
-description: Dig existing code for sediment when no change is proposed: mechanisms whose reason expired, tape holding them up, leftovers of replaced systems. Use when asked to audit legacy, stale, dead, or taped-over code, or "what should we remove"; "fast" re-checks what changed since the last audit.
+description: "Dig existing code for sediment when no change is proposed: mechanisms whose reason expired, tape holding them up, leftovers of replaced systems. Use when asked to audit legacy, stale, dead, or taped-over code, or \"what should we remove\"; \"fast\" re-checks what changed since the last audit."
 ---
 
 # Sediment audit
