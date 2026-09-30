@@ -1,0 +1,21 @@
+{
+  "name": "sediment",
+  "interface": {
+    "displayName": "Sediment"
+  },
+  "plugins": [
+    {
+      "name": "sediment",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/punkunknown/sediment.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "sediment",
+  "version": "0.1.0",
+  "description": "Map what a change touches, retire what it makes redundant, and audit repos for code whose reason expired.",
+  "author": {
+    "name": "punkunknown",
+    "url": "https://github.com/punkunknown"
+  },
+  "repository": "https://github.com/punkunknown/sediment",
+  "license": "MIT",
+  "skills": "./skills/"
+}
