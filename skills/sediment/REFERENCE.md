@@ -52,6 +52,9 @@ No reason found is not an expired reason. Chesterton's fence: failing to find wh
 exists is evidence about the search, not about the thing. Such a mechanism is tagged **ask**,
 never retired on proof.
 
+A **proven** verdict is still a claim until the change applying it passes the repo's tests and
+checks. A new failure is evidence that the reason still holds, and overturns the verdict.
+
 ## Question types
 
 Ask verdicts go to the user through the "sediment-grilling" skill, each phrased as one of these
@@ -85,6 +88,8 @@ Generic signals, true of any codebase. A repo's own signals live in its patterns
 - **The parallel system**: building a new mechanism beside one that already owns the fact.
   Merge instead.
 - **Taping the seam**: fixing drift between two copies without asking why two exist.
+- **Patching the removal**: fixing what a removal broke so the removal can stay. The break was
+  the mechanism's reason; reopen the verdict instead.
 - **Doc sediment**: leaving any part of the written record describing the old system as current.
 - **Asking for facts**: putting a question to the user that the code or git history answers.
 - **Grilling the proven**: sending the user verdicts that evidence already decides.
