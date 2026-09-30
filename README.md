@@ -10,8 +10,10 @@ called; review skills miss it because nothing proposed removing it.
 | [`sediment`](skills/sediment/SKILL.md) | Before or during a change: map what the change touches, find why each neighbour exists, and retire what the change makes redundant. |
 | [`sediment-audit`](skills/sediment-audit/SKILL.md) | With no change proposed: dig the repo (deep) or re-check what changed since the last audit (fast), prove each finding, and settle them with the user. |
 
-Both read the shared [reference](skills/sediment/REFERENCE.md): the vocabulary, verdict ladder,
-question types, reason markers, and the ledger and patterns formats.
+Both read the shared [reference](skills/sediment/REFERENCE.md): the vocabulary, reason markers,
+verdict ladder, question types, signals and anti-patterns. The ledger and patterns formats live in
+[LEDGER.md](skills/sediment/LEDGER.md), which the audit reads every run and `sediment` reads only
+when a repo keeps those files.
 
 ## What a repo accumulates
 

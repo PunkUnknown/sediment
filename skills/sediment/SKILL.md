@@ -1,6 +1,6 @@
 ---
 name: sediment
-description: Map what a change touches and retire what it makes redundant, asking the user where only they can decide. Use when planning a code or system change, or before patching a mismatch between two parts.
+description: Map what a change touches and retire what it makes redundant, asking the user where only they can decide. Use when planning a change that replaces, removes, or redefines a mechanism or a shared fact, or before patching a mismatch between two parts.
 ---
 
 # Sediment
@@ -19,19 +19,19 @@ touched", and nothing more.
 
 List the facts the change reads, writes, or redefines. For each fact, trace its owner and every
 reader and writer through wherever the repo keeps shared data and any docs that assign
-ownership, then every place a module computes the fact for itself, stored or not. A grep hit is a lead; a traced
-reader is a neighbour. Defaults, fallbacks and optional calls that supply the fact are neighbours,
+ownership, then every place a module computes the fact for itself, stored or not. A grep hit is
+a lead; a traced reader is a neighbour. Defaults, fallbacks and optional calls that supply the fact are neighbours,
 and so are the written record, tests, fixtures and developer tools that encode it.
 
-If the repo has a sediment ledger (see the reference), its active entries on these facts are
+If the repo has a sediment ledger (see [LEDGER.md](LEDGER.md)), its active entries on these facts are
 known sediment: take them onto the map. Its Do not re-report lines are resolved; leave them be.
 
 ## 2. Find each neighbour's reason
 
 **This is the skill.** A neighbour is a Chesterton's fence: it can only be judged against why it
 exists, and the reason is usually the thing nobody wrote down. Look in this order: its reason
-marker, the written record about it, the commit that introduced it, the comment beside it. Trace to the
-commit that introduced it, not the last one that touched it: follow moves and renames
+marker, the written record about it, the commit that introduced it, the comment beside it.
+Trace to the commit that introduced it, not the last one that touched it: follow moves and renames
 (`git log --follow`, `git log -S`) past reformatting. Tests that guard the behaviour are
 evidence of its reason. Stop once more history could not change the verdict.
 
@@ -43,7 +43,7 @@ finding; say so, and tag its verdict ask (see the reference).
 Give every neighbour a verdict from the ladder, tagged by who decides it: **proven** when the
 evidence decides it, **ask** when it rests on a requirement only the user can confirm.
 
-If the repo has a patterns file, apply each pattern's prevention to the change: run its checks
+If the repo has a patterns file (see [LEDGER.md](LEDGER.md)), apply each pattern's prevention to the change: run its checks
 yourself, and put its questions to the user as ask verdicts.
 
 Done when:
@@ -56,8 +56,8 @@ Done when:
 ## 4. Grill the ask verdicts
 
 Call the Skill tool with "grilling" when it is available; otherwise ask directly, roots first.
-Seed its design tree with the ask verdicts, phrased as the
-question types. Assumption questions are roots: their answers settle the merge and retire
+Seed its design tree with the ask verdicts, phrased as the question types. Assumption questions
+are roots: their answers settle the merge and retire
 questions hanging off them.
 
 Done when every ask verdict has the user's answer.
@@ -87,5 +87,5 @@ Assumption question. Holds: patch, and write the reason marker beside the seam.
 - [ ] Ledger entries this change resolves are resolved in the commit that resolves them, one
       entry per commit: retired ones deleted, kept ones moved to Do not re-report with a reason
       marker beside the code.
-- [ ] A pattern whose check or question proved wrong or noisy on this change is tuned, per the
-      reference.
+- [ ] A pattern whose check or question proved wrong or noisy on this change is tuned, per
+      [LEDGER.md](LEDGER.md).

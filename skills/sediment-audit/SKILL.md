@@ -8,7 +8,8 @@ description: Dig existing code for sediment when no change is proposed: mechanis
 The sediment skill, run on what already exists. No change is proposed; the job is to find
 mechanisms whose reason has expired, prove it, and settle with the user what to retire.
 
-Read [REFERENCE.md](../sediment/REFERENCE.md) first, then the repo's written record.
+Read [REFERENCE.md](../sediment/REFERENCE.md) and [LEDGER.md](../sediment/LEDGER.md) first, then
+the repo's written record.
 
 ## Depth
 
@@ -27,7 +28,7 @@ without judgment: a shape no pattern covers, or a reason only history could supp
 
 ## 0. Ledger
 
-Findings persist in the ledger (see the reference), so one run's blind spot never loses an
+Findings persist in the ledger (see LEDGER.md), so one run's blind spot never loses an
 earlier run's finding. If a ledger exists, before digging:
 
 - Re-verify every unverified and active entry against the current code. Code already gone: delete
@@ -65,8 +66,8 @@ Work five seams. Each produces candidates; none is proof yet.
    two owners of one fact. The written list is the checklist; every fact on it gets an entry.
    Include stated numbers: every version, revision or count that appears in more than one doc
    or gate is compared across all of them.
-2. **Written reasons.** Grep every reason marker first and test its `until` condition against
-   the running system; that part is mechanical. Then collect the unmarked reasons from the written
+2. **Written reasons.** Grep every reason marker first. Test the checkable `until` forms (date,
+   package version, symbol or path) with a script; test prose conditions by judgment. Then collect the unmarked reasons from the written
    record and seam comments, and test each claim the same way.
 3. **Tape clusters.** Fix commits clustered on one seam, repair vocabulary in code. Trace each
    cluster to the two things that must agree, and to why two exist.
@@ -76,8 +77,8 @@ Work five seams. Each produces candidates; none is proof yet.
    never by eye; its output table is the evidence. For every surface production could rely on
    (exported symbols, methods, parameter variants, defaults, optional calls, published state),
    count production readers against test and diagnostic readers. Zero production reliance is a
-   candidate. Count references with the compiler or a language server where the repo offers
-   one; otherwise fall back to text search and read each hit.
+   candidate. Use the repo's own unused-code tooling first when it has some (knip, vulture and
+   the like), then the compiler or a language server; fall back to text search and read each hit.
 
 Then search every pattern's signal from the repo's patterns file, and scan the reference's
 generic signals against every file the dig touched.
@@ -131,7 +132,12 @@ Nothing found: `No sediment. Reasons hold.`
 
 Write every finding to the ledger; a candidate matching a Do not re-report line stays out of
 the report. Replace the ledger's Next scope with the areas this run only spot-checked or did not
-cover (deep only). Record the run in the ledger's run log.
+cover (deep only). Record the run in the ledger's run log, naming the untested lifecycle parts
+that changed an outcome this run (see LEDGER.md).
+
+The skill tests its own reason markers too. After a deep run, test each marker in LEDGER.md
+against the repo's run log; when one has expired, tell the user that part of the skill changed no
+outcome across its trial runs, and propose pruning it.
 
 Update the patterns, following "Identifying a pattern" in the reference: trace each finding to
 its origin and classify who missed it, leaving both unknown when no origin shows them. Add
