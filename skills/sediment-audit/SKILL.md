@@ -172,8 +172,9 @@ Then ask the user which findings to settle.
 
 ## 5. Settle
 
-For the findings the user picks, call the Skill tool with "sediment-grilling", seeded with their
-ask verdicts as question types. Retiring a finding is itself a change: run it through the
-"sediment" skill, which maps what the removal touches and resolves the ledger entry in the same
-commit, one commit per entry. A finding the user decides to keep moves to Do not re-report, with a
-reason marker written beside the code.
+For the findings the user picks, call the Skill tool with "sediment-grilling", seeded with their ask
+verdicts as question types. Retiring a finding is itself a change: run it through the "sediment"
+skill, which maps what the removal touches, verifies it (its "Verifying each removal"), and resolves
+the ledger entry in the same commit, one commit per entry. A removal that fails verification leaves
+its entry active. A finding the user decides to keep moves to Do not re-report, with a reason marker
+written beside the code.

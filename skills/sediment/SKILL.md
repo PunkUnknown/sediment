@@ -74,8 +74,25 @@ one fact both things represent and the reason two copies exist, then climb the l
 collapse to one owner; the repair goes with the duplicate. Needs the user: ask it as an
 Assumption question. Holds: patch, and write the reason marker beside the seam.
 
+## Verifying each removal
+
+Retire, merge and rewrite verdicts change running code. A verdict is a claim until the checks
+agree with it.
+
+1. **Before the edit**, run the tests covering the mechanism and every neighbour on the map. Note
+   what already fails, so it is not blamed on the change.
+2. **Make the edit.** Delete a test only when it asserts nothing but the retired behaviour, and
+   say which ones went and why. A test asserting behaviour a neighbour still needs stays.
+3. **After the edit**, run those tests again, then every check the repo has: the full suite, type
+   check, build, lint.
+4. **A new failure means the reason has not expired**: something still relies on the mechanism.
+   Revert that removal and reopen its verdict. Never patch the failure to make the removal pass;
+   that patch is tape.
+
 ## Closing the change
 
+- [ ] Every retire, merge and rewrite passed the checks in "Verifying each removal", run and read,
+      not assumed.
 - [ ] Every retire verdict is removed, with its tests, fixtures, developer tools and diagnostics.
 - [ ] Every merge leaves one owner.
 - [ ] The written record describes the new system; superseded explanations are gone.
