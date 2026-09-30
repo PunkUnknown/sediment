@@ -145,9 +145,16 @@ graduation.
 count no quiet runs, and tune, propose and graduate nothing: a fast run never searched for new
 shapes, so its silence is not evidence.
 
-Report each new, tuned or proposed pattern in one line, so the user can judge whether it is the
-right one: `<id> <new|tuned|proposed> <shape>. missed by <user|agent|both|unknown>: <cause or
-unknown>. origin: <citation or none found>.` A tuned line adds what changed. Report each new or
+Report every pattern this run touched: each one it proposed, tuned or confirmed with new
+evidence. Give each a one-line claim and a one-line justification, so the user can question and
+refine it:
+
+`<id> <proposed|tuned|confirmed> <shape>. missed by <user|agent|both|unknown>: <cause or unknown>.`
+`  why: <what these findings share beyond appearance, with their ids>. origin: <citation or none found>.`
+
+The justification says why the findings belong together, not what they look like. A tuned
+line adds what changed. Patterns the run did not touch are not listed. These lines go at the
+top of the report, right after the mode line, where the user reads first. Report each new or
 extended calibration entry the same way: `<id> <new|extended> <signal>. check: <check>.` The
 user can answer with their own tuning of any field.
 
