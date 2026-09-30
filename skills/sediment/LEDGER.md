@@ -59,8 +59,7 @@ A **pattern** carries:
 - **Origin**: where its findings were laid down: the part of the written record (a commit, spec,
   ticket or conversation) that introduced them or left them behind, cited.
 - **Missed by**: **user**, **agent**, both, or **unknown** (see below).
-  <!-- reason: on trial, to learn whether classifying the miss changes outcomes; until 3 deep runs
-  after 2026-09-30 in which it changed no outcome -->
+  <!-- reason: on trial, to learn whether classifying the miss changes outcomes; until 3 deep runs after 2026-09-30 in which it changed no outcome -->
 - **Cause**: what the origin shows was missed, in one sentence; **unknown** when no origin shows
   it. Causes are often hard to find, and an unknown cause is a normal state, not a defect.
 - **Prevention**: a **check** the agent runs itself, derived from the shape when the cause is
