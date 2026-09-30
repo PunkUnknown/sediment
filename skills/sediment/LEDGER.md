@@ -27,11 +27,13 @@ A resolved finding leaves the entry list:
 The ledger also keeps a **Next scope** list (the areas no run has swept yet) and a **run log**:
 one line per audit.
 
-`<date> <deep|fast> <commit audited>; untested parts that changed an outcome: <names or none>`
+`<date> <deep|fast> <commit audited>; parts on trial that changed an outcome: <names | none | n/a>`
 
-Fast audits start from the last line's commit. The untested parts are the lifecycle rules below
-that carry a reason marker; a deep run names each one that changed a finding, a pattern or a
-report this run.
+Fast audits start from the last line's commit. The parts on trial are the rules below that carry
+a reason marker. A part **changed an outcome** when removing it would have produced a different
+report, ledger or patterns file this run; for "missed by", that is a pattern whose prevention
+became a question for the user rather than a check. A deep run names each such part, or `none`;
+a fast run writes `n/a`, since it does not classify misses.
 
 ## Patterns
 
@@ -57,7 +59,8 @@ A **pattern** carries:
 - **Origin**: where its findings were laid down: the part of the written record (a commit, spec,
   ticket or conversation) that introduced them or left them behind, cited.
 - **Missed by**: **user**, **agent**, both, or **unknown** (see below).
-  <!-- reason: untested lifecycle part (missed by); until 3 deep runs after 2026-09-30 in which it changed no outcome -->
+  <!-- reason: on trial, to learn whether classifying the miss changes outcomes; until 3 deep runs
+  after 2026-09-30 in which it changed no outcome -->
 - **Cause**: what the origin shows was missed, in one sentence; **unknown** when no origin shows
   it. Causes are often hard to find, and an unknown cause is a normal state, not a defect.
 - **Prevention**: a **check** the agent runs itself, derived from the shape when the cause is
@@ -65,7 +68,6 @@ A **pattern** carries:
 - **Evidence**: the findings that show it (ledger ids, with a few words each, since retired
   entries leave the ledger).
 - **Quiet runs**: deep audits in a row that found no new instance.
-  <!-- reason: untested lifecycle part (quiet runs); until 3 deep runs after 2026-09-30 in which it changed no outcome -->
 
 ### Identifying a pattern
 
@@ -100,7 +102,6 @@ Its life:
   may tune any field directly; a user-tuned field changes only by proposal to the user.
 - **Expiry**: after three quiet runs, delete it. The habit is fixed or the rule was never real;
   git keeps it.
-  <!-- reason: untested lifecycle part (expiry); until 3 deep runs after 2026-09-30 in which it changed no outcome -->
 - **Graduation**: a pattern that keeps producing findings is a standing failure. Propose its
   prevention for wherever the repo instructs agents (checks) or plans changes (questions); the user
   decides.

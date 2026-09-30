@@ -137,14 +137,15 @@ that changed an outcome this run (see LEDGER.md).
 
 The skill tests its own reason markers too. After a deep run, test each marker in LEDGER.md
 against the repo's run log; when one has expired, tell the user that part of the skill changed no
-outcome across its trial runs, and propose pruning it.
+outcome across its trial runs, and propose pruning it. Propose only: the skill is shared across
+repos, so it is never edited from inside a repo's audit.
 
-Update the patterns, following "Identifying a pattern" in the reference: trace each finding to
+Update the patterns, following "Identifying a pattern" in LEDGER.md: trace each finding to
 its origin and classify who missed it, leaving both unknown when no origin shows them. Add
 findings to the evidence of the patterns they fit, reset those patterns' quiet runs, and count a
 quiet run for the rest (deleting any that reach three). For every finding this run disproved,
 add or extend an Audit calibration entry with the check that would have caught it. Tune any
-pattern the evidence disagrees with, per the reference. Where two findings share a shape no
+pattern the evidence disagrees with, per LEDGER.md. Where two findings share a shape no
 pattern covers, propose a new pattern. Where a pattern keeps producing findings, propose its
 graduation.
 

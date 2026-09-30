@@ -36,7 +36,7 @@ Write the condition in a checkable form whenever one fits, so a script can test 
 
 Otherwise write the condition in prose; the agent tests prose conditions by judgment. A reason
 with no honest ending condition says `until the requirement changes`. Markers are found with
-`(#|//|--|<!--) ?reason:`.
+`(#|//|/\*|--|;|<!--) ?reason:`.
 
 ## Verdict ladder
 
