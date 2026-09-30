@@ -15,6 +15,10 @@ Shared by the `sediment` and `sediment-audit` skills.
 - **Neighbour**: a mechanism that feeds a change or fact, consumes it, owns it, repairs something
   it touches, or collides with it. A change's neighbours form its **contact map**.
 
+- **Written record**: wherever the repo keeps intent and decisions, in whatever form it has:
+  decision records, specs, tickets, design and architecture docs, READMEs, a glossary, commit
+  messages, pull request descriptions. Repos differ; use what exists and assume nothing else.
+
 Facts are the agent's job. Requirements are the user's.
 
 ## Reason markers
@@ -43,7 +47,8 @@ never retired on proof.
 
 ## Question types
 
-For ask verdicts, put to the user through the "grilling" skill. Each names the mechanism, its
+For ask verdicts, put to the user through the "grilling" skill when it is available, otherwise
+directly, a few at a time. Each names the mechanism, its
 reason, what changed about that reason, and a recommendation.
 
 - **Assumption**: "X exists because it assumes A. Does A still hold?"
@@ -58,8 +63,8 @@ Assumption questions are roots: their answers settle the others.
 
 ## Ledger
 
-The **ledger** holds unresolved sediment findings between runs: `.scratch/sediment/ledger.md`, or
-wherever the repo keeps its tickets. It is a tracked file, committed with the work that changes
+The **ledger** holds unresolved sediment findings between runs, in a `sediment/` folder beside
+the repo's in-tree tickets, or at `.sediment/` in the repo root when it keeps none. It is a tracked file, committed with the work that changes
 it, so git history records when each finding appeared and resolved.
 
 An **entry** carries an id, verdict, `[proven|ask]`, the one-line finding, its evidence, the
@@ -101,8 +106,8 @@ A **pattern** carries:
 - **Shape**: what it looks like in the code.
 - **Signal**: a general search that can discover new instances. Known names and cases belong
   under Evidence, so quiet runs measure discovery, not re-finding.
-- **Origin**: where its findings were laid down: the specs, tickets, commits or conversations
-  that introduced them or left them behind, cited.
+- **Origin**: where its findings were laid down: the part of the written record (a commit, spec,
+  ticket or conversation) that introduced them or left them behind, cited.
 - **Missed by**: **user**, **agent**, both, or **unknown** (see below).
 - **Cause**: what the origin shows was missed, in one sentence; **unknown** when no origin shows
   it. Causes are often hard to find, and an unknown cause is a normal state, not a defect.
@@ -114,8 +119,8 @@ A **pattern** carries:
 
 ### Identifying a pattern
 
-1. **Trace each finding to its origin.** Find the spec, ticket, commit or conversation that
-   introduced the mechanism, and the one that should have retired it. Cite the line. Stop once
+1. **Trace each finding to its origin.** Find the part of the written record that introduced
+   the mechanism, and the one that should have retired it. Cite the line. Stop once
    more history could not change the classification. No origin found: missed by and cause stay
    unknown.
 2. **Classify the miss** from what the origin says, never from a guess about intent:
@@ -146,7 +151,7 @@ Its life:
 - **Expiry**: after three quiet runs, delete it. The habit is fixed or the rule was never real;
   git keeps it.
 - **Graduation**: a pattern that keeps producing findings is a standing failure. Propose its
-  prevention for the repo's agent instructions (checks) or spec template (questions); the user
+  prevention for wherever the repo instructs agents (checks) or plans changes (questions); the user
   decides.
 
 ## Signals
@@ -167,12 +172,12 @@ Generic signals, true of any codebase. A repo's own signals live in its patterns
 - **The parallel system**: building a new mechanism beside one that already owns the fact.
   Merge instead.
 - **Taping the seam**: fixing drift between two copies without asking why two exist.
-- **Doc sediment**: leaving a doc, ADR or tracker status that describes the old system.
+- **Doc sediment**: leaving any part of the written record describing the old system as current.
 - **Asking for facts**: putting a question to the user that the code or git history answers.
 - **Grilling the proven**: sending the user verdicts that evidence already decides.
 
 ## Boundaries
 
 Over-engineering in new code belongs to ponytail; broken behaviour to diagnosing-bugs; module
-depth to improve-codebase-architecture. ADRs are settled decisions, except where their reason has
+depth to improve-codebase-architecture. Recorded decisions are settled, except where their reason has
 expired: that is exactly what sediment reopens.

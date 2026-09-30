@@ -8,7 +8,7 @@ description: Dig existing code for sediment when no change is proposed: mechanis
 The sediment skill, run on what already exists. No change is proposed; the job is to find
 mechanisms whose reason has expired, prove it, and settle with the user what to retire.
 
-Read [REFERENCE.md](../sediment/REFERENCE.md) first. Read `CONTEXT.md` and the ADRs.
+Read [REFERENCE.md](../sediment/REFERENCE.md) first, then the repo's written record.
 
 ## Depth
 
@@ -47,7 +47,8 @@ then the rest.
 Done when:
 
 - [ ] The scope is stated in one line: the named area, or "whole repo".
-- [ ] Every ADR, plan and spec in scope is on the replacement list, not only recent commits.
+- [ ] Every replacement the written record describes is on the replacement list, not only
+      recent commits.
 - [ ] The fact list is written out (see the fact census) before any fact is examined.
 
 **Fast:** the scope is every file changed since the ledger's last audit commit
@@ -58,18 +59,18 @@ carried forward untouched. State the commit range as the scope line.
 
 Work five seams. Each produces candidates; none is proof yet.
 
-1. **Fact census.** First write the fact list: every state section and field, every fact named
-   in the ownership docs and `CONTEXT.md`, and every value a module computes for itself. Then,
+1. **Fact census.** First write the fact list: every piece of shared data the code keeps, every
+   fact the written record names, and every value a module computes for itself. Then,
    fact by fact, list every place it is computed, stored or not. More than one is a candidate:
    two owners of one fact. The written list is the checklist; every fact on it gets an entry.
    Include stated numbers: every version, revision or count that appears in more than one doc
    or gate is compared across all of them.
 2. **Written reasons.** Grep every reason marker first and test its `until` condition against
-   the running system; that part is mechanical. Then collect the unmarked reasons (ADR reasons,
-   ticket maps, seam comments) and test each claim the same way.
+   the running system; that part is mechanical. Then collect the unmarked reasons from the written
+   record and seam comments, and test each claim the same way.
 3. **Tape clusters.** Fix commits clustered on one seam, repair vocabulary in code. Trace each
    cluster to the two things that must agree, and to why two exist.
-4. **Replacement leftovers.** For each removal or breaking commit, superseded ADR, plan or spec,
+4. **Replacement leftovers.** For each removal or breaking commit, and each superseded decision,
    search for what the old system left: names, values, branches, fixtures, doc sentences.
 5. **Caller census.** Run it as a throwaway script (in a temp dir or the repo's evidence folder),
    never by eye; its output table is the evidence. For every surface production could rely on
@@ -163,8 +164,8 @@ Then ask the user which findings to settle.
 
 ## 5. Settle
 
-For the findings the user picks, call the Skill tool with "grilling", seeded with their ask
-verdicts as question types. Retiring a finding is itself a change: run it through the "sediment"
+For the findings the user picks, put their ask verdicts to the user as question types, through
+the "grilling" skill when it is available. Retiring a finding is itself a change: run it through the "sediment"
 skill, which maps what the removal touches and resolves the ledger entry in the same commit,
 one commit per entry. A finding the user decides to keep moves to Do not re-report, with a
 reason marker written beside the code.

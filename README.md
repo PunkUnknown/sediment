@@ -15,7 +15,8 @@ question types, reason markers, and the ledger and patterns formats.
 
 ## What a repo accumulates
 
-An audited repo keeps two tracked files beside its tickets (by default `.scratch/sediment/`):
+An audited repo keeps two tracked files in a `sediment/` folder beside its in-tree tickets, or in
+`.sediment/` at the root when it keeps none:
 
 - `ledger.md`: open findings, suppressions, the areas still unswept, and a run log.
 - `patterns.md`: how this codebase tends to lay down sediment, and the audit's own calibration.
@@ -31,5 +32,6 @@ ln -s "$PWD/skills/sediment" ~/.agents/skills/sediment
 ln -s "$PWD/skills/sediment-audit" ~/.agents/skills/sediment-audit
 ```
 
-The skills call `grilling` and `domain-modeling` when available, for interviewing the user and
-recording decisions.
+The skills assume no particular docs layout: they read whatever written record a repo has
+(decision records, specs, tickets, READMEs, commit history). They use the `grilling` and
+`domain-modeling` skills when available, and ask directly or write plain decision notes otherwise.
