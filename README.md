@@ -9,13 +9,43 @@ the next session patches the two into agreement. Nothing breaks. It just piles u
 
 - You moved settings to the server. The old `localStorage` read is still there.
 - `isLate` is always `!onTime`. Two fields, one fact.
-- A doc still points at `eta/live.ts`, which was deleted.
+- The docs still say settings are saved in the browser. They moved to the server a year ago.
 
 **Tape** is code whose only job is keeping sediment working: a sync between two copies, a
 fallback like `?? true`, a retry around the sync.
 
 Dead-code tools miss it because it's still called. Review misses it because no diff touched it.
 Tests pass, often because the tape makes them pass.
+
+## How it forms
+
+Four sessions, each one reasonable:
+
+1. **The ask:** "Save the theme to the server." The agent adds a `theme` column and an endpoint.
+   Nobody says "and stop reading `localStorage`", so the old read stays.
+2. **The bug:** on a new laptop, the theme flashes light, then dark. Two copies, two answers.
+3. **The patch:** a new session copies the server value into `localStorage` on load. The bug is
+   gone. That copy is tape.
+4. **The patch on the patch:** offline, the copy fails and the stale value wins. The next
+   session adds a retry. More tape.
+
+Now one fact has two owners, a sync between them, and a retry around the sync, and every test is
+green. The `localStorage` read is the sediment: its reason ("there are no accounts") expired in
+step 1. Retire it, and the sync and the retry go with it.
+
+## Why it forms
+
+Mostly vibe coding: changes accepted because they work, not because anyone traced them.
+
+- **The spec is too thin.** It says what to add, never what the change replaces.
+- **The spec isn't read.** It did say the old path goes; the agent built the new one and stopped.
+- **Nobody knows what the change touches.** One edit quietly breaks an assumption three files
+  away, and the fix goes on top instead of at the cause.
+- **Nobody knows the old code exists.** You can't retire what you never found.
+
+The first is on the person writing the spec, the rest mostly on the agent, and usually it's
+both. The audit records which for every finding, so the next spec asks the missing question and
+the next agent runs the missing check.
 
 ## How it's classified
 
@@ -25,7 +55,7 @@ Each finding gets a verdict, from the first rung that holds:
 | --- | --- | --- |
 | **Retire** | Its reason has expired. | The `localStorage` read, once settings live on the server. |
 | **Merge** | Two things own one fact. Keep one owner. | `isLate` and `onTime`. |
-| **Rewrite** | Its reason holds, but it says something false. | The doc pointing at a deleted file. |
+| **Rewrite** | Its reason holds, but it says something false. | The docs still describing browser-saved settings. |
 | **Keep** | Its reason holds. Write the reason down. | An old URL redirect that old SMS links still use. |
 
 And a tag for who decides:
