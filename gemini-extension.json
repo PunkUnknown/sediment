@@ -1,0 +1,5 @@
+{
+  "name": "sediment",
+  "version": "0.1.0",
+  "description": "Map what a change touches, retire what it makes redundant, and audit repos for code whose reason expired."
+}

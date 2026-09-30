@@ -1,0 +1,30 @@
+{
+  "name": "sediment",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Map what a change touches, retire what it makes redundant, and audit repos for code whose reason expired.",
+  "keywords": [
+    "sediment",
+    "dead-code",
+    "refactoring",
+    "code-review",
+    "legacy",
+    "pi-package",
+    "skills"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "punkunknown",
+    "url": "https://github.com/punkunknown"
+  },
+  "homepage": "https://github.com/punkunknown/sediment",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/punkunknown/sediment.git"
+  },
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

@@ -6,10 +6,9 @@
     "name": "punkunknown",
     "url": "https://github.com/punkunknown"
   },
+  "homepage": "https://github.com/punkunknown/sediment",
   "repository": "https://github.com/punkunknown/sediment",
   "license": "MIT",
-  "skills": "./skills/",
-  "homepage": "https://github.com/punkunknown/sediment",
   "keywords": [
     "sediment",
     "dead-code",

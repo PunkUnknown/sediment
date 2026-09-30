@@ -139,8 +139,8 @@ it is recorded, and every later run does it first.
 
 ## Install
 
-Install all four skills together: `sediment` and `sediment-audit` call the two helpers and share
-one reference file.
+Every route installs all four skills together: `sediment` and `sediment-audit` call the two
+helpers and share one reference file.
 
 ### Claude Code
 
@@ -151,7 +151,9 @@ one reference file.
 /plugin install sediment@sediment
 ```
 
-Send them as two separate prompts. In the desktop app, use the same commands in the Code tab.
+Send them as two separate prompts. In the desktop app, type them into the Code tab, or use
+**+** → **Plugins** → **Add plugin**. Skills show as `sediment:sediment`,
+`sediment:sediment-audit` and so on.
 
 ### Codex
 
@@ -160,10 +162,62 @@ codex plugin marketplace add punkunknown/sediment
 codex plugin add sediment@sediment
 ```
 
-### Any other agent
+Also covers the Codex desktop app after a restart.
 
-The [`skills`](https://github.com/vercel-labs/skills) CLI installs into Cursor, Copilot, Gemini,
-OpenCode and most other agents that read skill folders:
+### GitHub Copilot CLI
+
+```bash
+copilot plugin marketplace add punkunknown/sediment
+copilot plugin install sediment@sediment
+```
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/punkunknown/sediment
+```
+
+### Antigravity CLI
+
+```bash
+agy plugin install https://github.com/punkunknown/sediment
+```
+
+### Devin CLI
+
+```bash
+devin plugins install punkunknown/sediment
+```
+
+### Grok Build
+
+```bash
+grok plugin install punkunknown/sediment --trust
+```
+
+Then enable it under `/plugins` and start a new session.
+
+### Pi agent harness
+
+```bash
+pi install git:github.com/punkunknown/sediment
+```
+
+### Qoder
+
+Qoder loads the skills through [`.qoder-plugin/plugin.json`](.qoder-plugin/plugin.json).
+
+### Swival
+
+```bash
+swival skills add --global https://github.com/punkunknown/sediment
+swival skills add sediment
+```
+
+### Cursor, OpenCode, Windsurf and any other agent
+
+The [`skills`](https://github.com/vercel-labs/skills) CLI copies the skills into the folders each
+agent reads (`.agents/skills/`, `.claude/skills/` and so on):
 
 ```bash
 npx skills add punkunknown/sediment --skill '*'
@@ -180,6 +234,22 @@ for s in sediment sediment-audit sediment-grilling sediment-decisions; do
   ln -s "$PWD/skills/$s" ~/.claude/skills/$s
 done
 ```
+
+### Uninstall
+
+| Host | Command |
+| --- | --- |
+| Claude Code | `/plugin remove sediment` |
+| Codex | `codex plugin remove sediment` |
+| Copilot CLI | `copilot plugin uninstall sediment` |
+| Gemini CLI | `gemini extensions uninstall sediment` |
+| Devin CLI | `devin plugins remove sediment` |
+| Grok Build | `grok plugin uninstall sediment` |
+| Pi agent | `pi uninstall sediment` |
+| `skills` CLI | `npx skills remove sediment sediment-audit sediment-grilling sediment-decisions` |
+| Manual | Delete the four links |
+
+Uninstalling leaves each audited repo's `sediment/` folder alone; those files are yours.
 
 ## Requirements
 

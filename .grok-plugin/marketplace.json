@@ -1,0 +1,16 @@
+{
+  "name": "sediment",
+  "description": "Find and retire code whose reason has expired.",
+  "owner": {
+    "name": "punkunknown",
+    "url": "https://github.com/punkunknown"
+  },
+  "plugins": [
+    {
+      "name": "sediment",
+      "description": "Map what a change touches, retire what it makes redundant, and audit repos for code whose reason expired.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
